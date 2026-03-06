@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Github, Menu, X } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,19 +31,7 @@ export const Navbar = () => {
         width: '100%'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '24px',
-            height: '24px',
-            background: 'var(--acc)',
-            borderRadius: '4px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            color: '#000',
-            fontSize: '14px'
-          }}>G</div>
-          <span style={{ fontWeight: 700, fontSize: '18px' }}>dbgecko</span>
+          <Logo/>
         </div>
         
         {/* Desktop Nav */}
@@ -108,6 +97,10 @@ export const Navbar = () => {
       <style>{`
         .nav-link { transition: color 0.2s; }
         .nav-link:hover { color: #fff !important; }
+        
+        @media (max-width: 768px) {
+          .desktop-only { display: none !important; }
+        }
       `}</style>
     </nav>
   );

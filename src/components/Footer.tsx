@@ -1,3 +1,5 @@
+import { Logo } from "./Logo";
+
 export const Footer = () => {
   return (
     <footer style={{
@@ -14,19 +16,7 @@ export const Footer = () => {
       }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-            <div style={{
-              width: '18px',
-              height: '18px',
-              background: 'var(--acc)',
-              borderRadius: '3px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontWeight: 'bold',
-              color: '#000',
-              fontSize: '10px'
-            }}>G</div>
-            <span style={{ fontWeight: 700, fontSize: '14px' }}>dbgecko</span>
+            <Logo/>
           </div>
           <p style={{ color: 'var(--muted)', fontSize: '13px' }}>
             Built by Hazel Daniel. Licensed under Apache-2.0.
