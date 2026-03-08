@@ -177,7 +177,7 @@ export const Hero = () => {
           color: '#fff',
           overflowX: 'auto'
         }}>
-          <div style={{ marginBottom: '8px' }}><span style={{ color: 'var(--acc)' }}>$</span> dbgecko backup --db postgres --remote s3</div>
+          <div style={{ marginBottom: '8px' }}><span style={{ color: 'var(--acc)' }}>$</span> dbgecko --runtime_mode=cli --runtime_op=backup --config_path=/home/[USER]/.config/dbgecko/config.yml</div>
           <div style={{ color: 'var(--muted)' }}>[INFO] Initializing plugin: pg-v2.2.2</div>
           <div style={{ color: 'var(--muted)' }}>[INFO] Connecting to storage backend: AWS S3</div>
           <div style={{ color: 'var(--muted)' }}>[INFO] Streaming backup started...</div>

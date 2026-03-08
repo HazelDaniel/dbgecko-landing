@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Download as DownloadIcon } from 'lucide-react';
 
 const architectures = [
@@ -8,8 +8,18 @@ const architectures = [
   { id: 'macos-arm64', label: 'macOS ARM64' },
 ];
 
+type PlatformLiteralType = 'linux-x64' | 'linux-arm64' | 'macos-x64' | 'macos-arm64';
+type ArchitectureToBinMap = Map<PlatformLiteralType, string>;
+
+const architectureToBinHash: ArchitectureToBinMap = new Map();
+
+architectureToBinHash.set('linux-x64', 'https://github.com/HazelDaniel/dbgecko/releases/download/v1.0.0/dbgecko');
+architectureToBinHash.set('macos-x64', 'https://github.com/HazelDaniel/dbgecko/releases/download/v1.0.0/dbgecko');
+architectureToBinHash.set('linux-arm64', 'https://github.com/HazelDaniel/dbgecko/releases/download/v1.0.0/dbgecko');
+architectureToBinHash.set('macos-arm64', 'https://github.com/HazelDaniel/dbgecko/releases/download/v1.0.0/dbgecko');
+
 export const Download = () => {
-  const [selectedArch, setSelectedArch] = useState('linux-x64');
+  const [selectedArch, setSelectedArch] = useState<PlatformLiteralType>('linux-x64');
 
   return (
     <section id="download" style={{ padding: 'clamp(60px, 10vh, 120px) 0', background: 'rgba(255,255,255,0.02)' }}>
@@ -62,7 +72,7 @@ export const Download = () => {
           </div>
 
           <a 
-            href={`https://github.com/HazelDaniel/dbgecko/releases/latest/download/dbgecko-${selectedArch}`}
+            href={architectureToBinHash.get(selectedArch) || '#'}
             className="download-btn"
             style={{
               width: '100%',
