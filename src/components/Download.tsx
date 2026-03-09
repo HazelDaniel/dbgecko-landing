@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Download as DownloadIcon } from 'lucide-react';
 
 const architectures = [
@@ -6,7 +6,7 @@ const architectures = [
   { id: 'linux-arm64', label: 'Linux ARM64' },
   { id: 'macos-x64', label: 'macOS x86_64' },
   { id: 'macos-arm64', label: 'macOS ARM64' },
-];
+] as const;
 
 type PlatformLiteralType = 'linux-x64' | 'linux-arm64' | 'macos-x64' | 'macos-arm64';
 type ArchitectureToBinMap = Map<PlatformLiteralType, string>;
