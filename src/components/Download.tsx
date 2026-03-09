@@ -73,6 +73,7 @@ export const Download = () => {
 
           <a 
             href={architectureToBinHash.get(selectedArch) || '#'}
+            target='_blank'
             className="download-btn"
             style={{
               width: '100%',
@@ -90,7 +91,7 @@ export const Download = () => {
               textAlign: 'center'
             }}
           >
-            <DownloadIcon size={20} /> <span className="btn-text">Download for {architectures.find(a => a.id === selectedArch)?.label}</span>
+            <DownloadIcon size={20} /> <span className="btn-text">Download for { architectures.find(a => a.id === selectedArch)?.label}</span>
           </a>
 
           <div style={{ textAlign: 'center', width: '100%', overflow: 'hidden' }}>
